@@ -18,7 +18,15 @@
             text-align: center;
             border-bottom: 2px solid #ddd;
             padding-bottom: 10px;
-            margin-bottom: 30px;
+            margin-bottom: 10px;
+        }
+        /* 访问次数样式 */
+        .visit-count {
+            text-align: center;
+            color: #b8860b; /* 金色文字，贴合金条主题 */
+            font-size: 18px;
+            margin: 15px 0;
+            font-weight: bold;
         }
         .gold-bar {
             background-color: #fff;
@@ -28,7 +36,7 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             overflow-x: auto;
         }
-        /* 金色字符染色：外层深金+内层亮金+光泽浅金 */
+        /* 金色字符染色 */
         .gold-text {
             color: #b8860b; /* 金条边框深金色 */
         }
@@ -36,7 +44,7 @@
             color: #ffd700; /* 金条主体亮金色（24K金） */
         }
         .gold-text .glow {
-            color: #f0e68c; /* 光泽浅金色（反光效果） */
+            color: #f0e68c; /* 光泽浅金色 */
         }
         .intro {
             color: #333;
@@ -44,25 +52,70 @@
             margin-bottom: 20px;
             text-align: center;
         }
+        /* 留言板样式 */
+        .comment-section {
+            background-color: #fff;
+            padding: 25px;
+            margin: 30px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .comment-section h2 {
+            color: #b8860b;
+            border-bottom: 2px solid #f0e68c;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
     </style>
 </head>
 <body>
     <h1>欢迎来到岳文博的博客，网页还十分粗糙，但我会改进的</h1>
-    <p class="intro">送你根金条</p>
+    <!-- 网站访问次数（不蒜子统计） -->
+    <div class="visit-count">
+        总访问量：<span id="busuanzi_value_site_pv"></span> 次 | 今日访问：<span id="busuanzi_value_site_uv"></span> 人
+    </div>
+    <p class="intro">分享一个彩色金条字符画，记录学习成果~</p>
 
     <!-- 彩色金色条 -->
     <div class="gold-bar">
         <pre class="gold-text">
-<span class="shine">█████████████████████████████████</span>
-<span class="shine">█</span>                                                              <span class="shine">█</span>
-<span class="shine">█</span>                                                              <span class="shine">█</span>
-<span class="shine">█</span>               <span class="glow">░░░░░</span>  <span class="shine">Au</span>  <span class="glow">░░░░░</span>                     <span class="shine">█</span>
-<span class="shine">█</span>                                                              <span class="shine">█</span>
-<span class="shine">█</span>                                                              <span class="shine">█</span>
-<span class="shine">█████████████████████████████████</span>
+         <span class="shine">█████████████████████████████████</span>
+         <span class="shine">█</span>                                                              <span class="shine">█</span>
+         <span class="shine">█</span>                                                              <span class="shine">█</span>
+         <span class="shine">█</span>               <span class="glow">░░░░░</span>  <span class="shine">Au</span>  <span class="glow">░░░░░</span>                     <span class="shine">█</span>
+         <span class="shine">█</span>                                                              <span class="shine">█</span>
+         <span class="shine">█</span>                                                              <span class="shine">█</span>
          <span class="glow">░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░</span>
         </pre>
     </div>
 
+    <!-- 留言板区域 -->
+    <div class="comment-section">
+        <h2>📝 博客留言板</h2>
+        <!-- Valine 留言板组件 -->
+        <div id="vcomments"></div>
+    </div>
+
+    <!-- 引入不蒜子统计脚本 -->
+    <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <!-- 引入 Valine 留言板脚本（无需注册，直接使用） -->
+    <script src="https://cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="https://unpkg.com/valine@1.4.18/dist/Valine.min.js"></script>
+    <script>
+        // 初始化留言板
+        new Valine({
+            el: '#vcomments', // 绑定留言板容器
+            appId: 'CmCti21ooOC6o7nMGdSDxYv2-gzGzoHsz', // 公共测试 AppId（可自己替换）
+            appKey: 'FqI9nT95F3NmL0uz1c054hOJ', // 公共测试 AppKey
+            placeholder: '欢迎留言交流~ 可以说说对博客的建议哦！', // 留言提示
+            avatar: 'mp', // 头像样式（mp=微信头像）
+            pageSize: 10, // 每页显示10条留言
+            lang: 'zh-CN', // 中文语言
+            recordIP: true, // 记录访客IP（可选关闭）
+            enableQQ: true // 支持QQ快捷登录
+        });
+    </script>
 </body>
 </html>
