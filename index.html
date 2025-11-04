@@ -6,12 +6,12 @@
     <style>
         /* 基础样式优化 */
         body {
-            font-family: "Courier New", monospace; /* 等宽字体确保字符对齐 */
+            font-family: "Courier New", monospace;
             background-color: #f5f5f5;
             padding: 20px;
-            line-height: 1.6; /* 调整行高更易读 */
-            max-width: 1200px; /* 限制最大宽度，避免过宽 */
-            margin: 0 auto; /* 页面居中 */
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
         }
         h1 {
             color: #333;
@@ -26,7 +26,17 @@
             margin: 20px 0;
             border-radius: 8px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            overflow-x: auto; /* 横向溢出时可滚动 */
+            overflow-x: auto;
+        }
+        /* 金色字符染色：外层深金+内层亮金+光泽浅金 */
+        .gold-text {
+            color: #b8860b; /* 金条边框深金色 */
+        }
+        .gold-text .shine {
+            color: #ffd700; /* 金条主体亮金色（24K金） */
+        }
+        .gold-text .glow {
+            color: #f0e68c; /* 光泽浅金色（反光效果） */
         }
         .intro {
             color: #333;
@@ -40,19 +50,19 @@
     <h1>欢迎来到岳文博的博客，网页还十分粗糙，但我会改进的</h1>
     <p class="intro">送你根金条</p>
 
-    <!-- 居中标识版金条 -->
+    <!-- 彩色金色条 -->
     <div class="gold-bar">
-        <pre>
-███████████████████████████████
-█                                                            █
-█                                                            █
-█                 ░░░░░  Au  ░░░░░                 █
-█                                                            █
-█                                                            █
-███████████████████████████████
-         ░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+        <pre class="gold-text">
+<span class="shine">█████████████████████████████████</span>
+<span class="shine">█</span>                                                              <span class="shine">█</span>
+<span class="shine">█</span>                                                              <span class="shine">█</span>
+<span class="shine">█</span>               <span class="glow">░░░░░</span>  <span class="shine">Au</span>  <span class="glow">░░░░░</span>                     <span class="shine">█</span>
+<span class="shine">█</span>                                                              <span class="shine">█</span>
+<span class="shine">█</span>                                                              <span class="shine">█</span>
+<span class="shine">█████████████████████████████████</span>
+         <span class="glow">░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░</span>
         </pre>
     </div>
 
 </body>
-</html>  
+</html>
